@@ -18,8 +18,6 @@ app.use('/register', routes.register);
 app.use('/customer', auth.validateToken, routes.customer);
 app.use('/seller', auth.validateToken, routes.seller);
 
-app.get('/coffee', (_req, res) => res.status(418).end());
-
 app.use(errorMiddleware);
 
 module.exports = app;
