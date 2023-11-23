@@ -9,7 +9,7 @@ const JWT_CONFIG = { expiresIn: '5d', algorithm: 'HS256' };
 
 const configAuthorization = {
   signAuth: (user) => jwt.sign({ data: { user } }, JWT_SECRET, JWT_CONFIG),
-  verifyAuth: (payload) => jwt.verify(payload, JWT_SECRET),
+  verifyAuth: (token) => jwt.verify(token.split(' ')[1], JWT_SECRET),
 };
 
 module.exports = {
